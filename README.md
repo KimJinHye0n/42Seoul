@@ -6,4 +6,4 @@
 
 #### 과정
 
-[libft]()
+[libft](https://github.com/KimJinHye0n/42Seoul/tree/main/libft)
