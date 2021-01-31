@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 11:15:16 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 11:19:28 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/31 16:17:53 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst == NULL)
 		return (NULL);
-	while (lst -> next != NULL)
-		lst = lst -> next;
+	while (lst->next != NULL)
+		lst = lst->next;
 	return (lst);
 }

@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 12:03:56 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 12:14:40 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/31 16:07:42 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		return ;
 	while (lst)
 	{
-		f(lst -> content);
-		lst = lst -> next;
+		f(lst->content);
+		lst = lst->next;
 	}
 }

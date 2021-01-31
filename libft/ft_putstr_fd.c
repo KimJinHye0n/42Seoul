@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 20:16:17 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 12:25:06 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/31 16:08:50 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
 		return ;
-	while(*s)
+	while (*s)
 	{
 		write(fd, s, 1);
 		s++;

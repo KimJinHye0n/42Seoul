@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:08:32 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/30 22:08:06 by kimjinhye        ###   ########.fr       */
+/*   Updated: 2021/01/31 16:19:09 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*dst;
-	unsigned int i;
-	size_t		s_len;
+	char			*dst;
+	unsigned int	i;
+	size_t			s_len;
 
 	if (!s)
 		return (0);

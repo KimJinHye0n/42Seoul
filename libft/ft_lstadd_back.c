@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 11:19:56 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 13:53:09 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/31 16:07:08 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 	else
 	{
-		while (tmp -> next)
-			tmp = tmp -> next;
-		tmp -> next = new;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
 }

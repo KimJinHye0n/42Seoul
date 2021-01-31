@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 20:32:43 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 15:09:50 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/31 16:10:28 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static	void	put_string(char *dst, char const *s, size_t start, size_t end)
 	}
 }
 
-static	int	one_split(char **dst, char const *s, char c)
+static	int		one_split(char **dst, char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -84,7 +84,7 @@ static	int	one_split(char **dst, char const *s, char c)
 			start = i;
 			while (s[i] != c && s[i])
 				i++;
-			if(!(dst[j] = (char *)malloc((i - start + 1) * sizeof(char))))
+			if (!(dst[j] = (char *)malloc((i - start + 1) * sizeof(char))))
 			{
 				free_dst(dst);
 				return (0);
@@ -96,8 +96,7 @@ static	int	one_split(char **dst, char const *s, char c)
 	return (1);
 }
 
-
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**dst;
 	int		count;

@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 11:54:27 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 12:33:57 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/31 16:07:29 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	curr = *lst;
 	while (curr)
 	{
-		coming = curr -> next;
+		coming = curr->next;
 		ft_lstdelone(curr, del);
 		curr = coming;
 	}

@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 23:50:26 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/26 20:30:54 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/31 16:06:39 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	sizeof_n(long n)
 	return (size);
 }
 
-void	while_loof(char *dst, int n, int size)
+void		while_loof(char *dst, int n, int size)
 {
 	if (n == 0)
 		dst[0] = '0';
@@ -41,7 +41,7 @@ void	while_loof(char *dst, int n, int size)
 	}
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		sign;
 	int		size;
