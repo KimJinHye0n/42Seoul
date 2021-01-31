@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 17:01:15 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/16 17:12:47 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/26 20:22:12 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ char	*ft_strjoin(const char *s1, const char *s2)
 {
 	size_t	s1_len;
 	size_t	s2_len;
-	char	joins;
+	char	*joins;
 
+	if (!s1 || !s2)
+		return (0);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	if (!s1 && !s2)
-		return (0);
 	if (!s1)
 		return (ft_strdup(s2));
 	if (!s2)

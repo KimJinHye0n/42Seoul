@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 14:23:54 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/15 23:44:48 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/26 20:20:36 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	srclen;
 
+	if (!dst || !src)
+		return (0);
 	srclen = ft_strlen(src);
 	i = 0;
 	if (dstsize == 0)

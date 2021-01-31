@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 19:58:42 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/26 20:35:02 by jin-kim          ###   ########.fr       */
+/*   Created: 2021/01/31 11:54:27 by jin-kim           #+#    #+#             */
+/*   Updated: 2021/01/31 12:33:57 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, const char *set)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	s1_len;
-	size_t	start;
-	size_t	end;
+	t_list	*curr;
+	t_list	*coming;
 
-	if (!s1)
-		return (0);
-	if (!set)
-		return (ft_strdup(s1));
-	s1_len = ft_strlen(s1);
-	start = 0;
-	while (start < s1_len && ft_strchr(set, s1[start]))
-		start++;
-	end = s1_len - 1;
-	while (s1[end] && ft_strchr(set, s1[end]) && end > start)
-		end--;
-	return (ft_substr(s1, start, end - start + 1));
+	if (lst == NULL)
+		return ;
+	curr = *lst;
+	while (curr)
+	{
+		coming = curr -> next;
+		ft_lstdelone(curr, del);
+		curr = coming;
+	}
+	*lst = NULL;
 }

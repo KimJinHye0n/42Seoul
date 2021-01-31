@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 23:50:26 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/17 15:10:19 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/01/26 20:30:54 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	sizeof_n(long n)
 	int	size;
 
 	size = 0;
+	if (n == 0)
+		return (1);
 	while (n)
 	{
 		n = n / 10;
@@ -25,25 +27,41 @@ static int	sizeof_n(long n)
 	return (size);
 }
 
-char		*ft_itoa(int n)
+void	while_loof(char *dst, int n, int size)
 {
-	int		size;
-	long	n_long;
-	int		sign;
-	char	*dst;
-
-	sign = (n > 0) ? 0 : 1;
-	n_long = (n > 0) ? ((long)n) : (-1 * (long(n)));
-	size = (sign == 1) ? (sizeof_n(n_long) + 1) : (sizeof_n(n_long));
-	if (!(dst = malloc((size + 1) * sizeof(char))))
-		return (0);
-	dst[size] = '\0';
-	while (size-- && n)
+	if (n == 0)
+		dst[0] = '0';
+	if (n < 0)
+		n = -1 * n;
+	while (n)
 	{
-		dst[size] = n % 10;
+		size--;
+		dst[size] = n % 10 + '0';
 		n = n / 10;
 	}
+}
+
+char	*ft_itoa(int n)
+{
+	int		sign;
+	int		size;
+	char	*dst;
+
+	sign = (n < 0) ? 1 : 0;
+	size = sizeof_n(n);
 	if (sign)
-		dst[size] = "-";
+		size++;
+	if (!(dst = (char *)malloc((size + 1) * sizeof(char))))
+		return (0);
+	dst[size] = 0;
+	if (n == -2147483648)
+	{
+		dst[1] = 2 + '0';
+		while_loof(dst, 147483648, 11);
+	}
+	else
+		while_loof(dst, n, size);
+	if (sign)
+		dst[0] = 45;
 	return (dst);
 }

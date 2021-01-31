@@ -6,39 +6,45 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 20:32:43 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/21 00:34:22 by kimjinhye        ###   ########.fr       */
+/*   Updated: 2021/01/31 15:09:50 by jin-kim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	c_count(const char *s, char c)
+static size_t	num_word(char const *s, char c)
 {
-	size_t	j;
-	int		count;
+	size_t	word_count;
+	size_t	onoff;
+	size_t	i;
 
-	j = 0;
-	count = 0;
-	while (j < ft_strlen(s))
+	if (!s)
+		return (0);
+	i = 0;
+	onoff = 1;
+	word_count = 0;
+	while (s[i])
 	{
-		if (s[j++] == c)
+		if (s[i] == c)
 		{
-			count++;
-			while (j < ft_strlen(s) || s[j] != c)
-				j++;
+			onoff = 1;
 		}
-		else
-			j++;
+		else if (s[i] != c && onoff)
+		{
+			word_count++;
+			onoff = 0;
+		}
+		i++;
 	}
-	return (count);
+	return (word_count);
 }
 
-static void	free_mal(char **dst, int row)
+static	void	free_dst(char **dst)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < row)
+	while (dst[i])
 	{
 		free(dst[i]);
 		i++;
@@ -46,59 +52,63 @@ static void	free_mal(char **dst, int row)
 	free(dst);
 }
 
-static void split_val(const char *s, char *dst, int start, int end)
+static	void	put_string(char *dst, char const *s, size_t start, size_t end)
 {
-	int i;
+	size_t	len;
+	size_t	i;
 
+	len = end - start;
+	dst[len] = 0;
 	i = 0;
-	while (i < end - start)
+	while (i < len)
 	{
 		dst[i] = s[start + i];
 		i++;
 	}
-	dst[i] = 0;
 }
 
-static void	input_tmp(const char *s, char **dst, char c)
+static	int	one_split(char **dst, char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		count;
-	char	*tmp;
+	size_t	i;
+	size_t	j;
+	size_t	start;
 
 	i = 0;
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c && s[i])
+		if (s[i] == c)
+			i++;
+		else
 		{
-			count = i
+			start = i;
 			while (s[i] != c && s[i])
 				i++;
-			if (!(dst[j] = (char *)malloc((i - count + 1) * sizeof(char))));
+			if(!(dst[j] = (char *)malloc((i - start + 1) * sizeof(char))))
 			{
-				free_mal(dst, j);
+				free_dst(dst);
 				return (0);
 			}
-			split_val(s, dst[j], count, i);
+			put_string(dst[j], s, start, i);
 			j++;
 		}
 	}
+	return (1);
 }
 
-char		**ft_split(const char *s, char c)
-{
-	int		count;
-	char	**dst;
 
-	count = c_count(s, c);
-	dst = (char **)malloc((count + 1) * (sizeof(char *)));
-	if (!dst)
+char	**ft_split(char const *s, char c)
+{
+	char	**dst;
+	int		count;
+
+	if (!s)
 		return (0);
-	inpur_tmp(s, dst, c);
+	count = num_word(s, c);
+	if (!(dst = (char **)malloc((count + 1) * sizeof(char *))))
+		return (0);
 	dst[count] = 0;
-	if (count == 0)
-		return (dst);
-	input_tmp(s, dst, c);
+	if (!(one_split(dst, s, c)))
+		return (0);
 	return (dst);
 }
