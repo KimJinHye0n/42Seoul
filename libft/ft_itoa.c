@@ -6,13 +6,13 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 23:50:26 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 16:06:39 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/02/06 13:09:40 by kimjinhye        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	sizeof_n(long n)
+static int	sizeof_n(int n)
 {
 	int	size;
 
@@ -27,7 +27,7 @@ static int	sizeof_n(long n)
 	return (size);
 }
 
-void		while_loof(char *dst, int n, int size)
+static void	while_loof(char *dst, int n, int size)
 {
 	if (n == 0)
 		dst[0] = '0';

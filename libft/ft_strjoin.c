@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 17:01:15 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/26 20:22:12 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/02/06 12:45:56 by kimjinhye        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (ft_strdup(s2));
 	if (!s2)
 		return (ft_strdup(s1));
-	joins = malloc(((s1_len + 1) + (s2_len + 1)) * sizeof(char));
+	joins = malloc(((s1_len + s2_len + 1)) * sizeof(char));
 	if (!joins)
 		return (0);
 	ft_memcpy(joins, s1, s1_len);

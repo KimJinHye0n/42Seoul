@@ -6,7 +6,7 @@
 /*   By: jin-kim <jin-kim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 12:35:49 by jin-kim           #+#    #+#             */
-/*   Updated: 2021/01/31 16:08:22 by jin-kim          ###   ########.fr       */
+/*   Updated: 2021/02/06 20:32:54 by kimjinhye        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		ft_lstadd_back(&result, tmp);
-		tmp = tmp->next;
 		lst = lst->next;
 	}
 	return (result);
